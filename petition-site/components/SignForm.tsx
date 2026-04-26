@@ -196,6 +196,17 @@ export function SignForm() {
           {commentLen} of 1000 characters
         </span>
       </label>
+      <label className="text-xs text-muted flex gap-2 items-start -mt-2">
+        <input
+          type="checkbox"
+          name="commentPublic"
+          value="yes"
+          defaultChecked
+          className="mt-0.5"
+        />
+        Show my comment (with my first name only) on the public Voices wall.
+        Untick to keep it private — Parliament will still see it when we hand the petition over.
+      </label>
       <label className="text-xs text-muted flex gap-2 items-start">
         <input type="checkbox" required name="consent" className="mt-0.5" />
         I consent to my name and city being counted on this petition and submitted to the Indian Parliament, and to receiving occasional email updates about its progress. (DPDP Act 2023)

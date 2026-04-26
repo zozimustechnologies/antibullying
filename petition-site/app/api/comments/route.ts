@@ -17,11 +17,14 @@ export async function GET(req: Request) {
     console.error('comments rpc failed', error);
     return NextResponse.json({ items: [], error: 'rpc' });
   }
-  // Strip location fields — only first name + comment + timestamp are public.
-  const items = (data ?? []).map((r: { first_name: string; comment: string; created_at: string }) => ({
-    first_name: r.first_name,
-    comment: r.comment,
-    created_at: r.created_at,
-  }));
+  // Strip any unexpected fields — only first name, signature #, comment, timestamp.
+  const items = (data ?? []).map(
+    (r: { signature_number?: number; first_name: string; comment: string; created_at: string }) => ({
+      signature_number: r.signature_number ?? null,
+      first_name: r.first_name,
+      comment: r.comment,
+      created_at: r.created_at,
+    }),
+  );
   return NextResponse.json({ items });
 }

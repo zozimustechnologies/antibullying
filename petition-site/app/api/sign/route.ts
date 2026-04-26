@@ -20,6 +20,7 @@ type Payload = {
   age?: string | number;
   guardianConsent?: string | boolean;
   comment?: string;
+  commentPublic?: string | boolean;
   consent?: string | boolean;
   // Anti-bot fields
   website?: string; // honeypot — must be empty
@@ -75,6 +76,9 @@ export async function POST(req: Request) {
   const guardianConsent = isTrue(body.guardianConsent);
   const consent = isTrue(body.consent);
   const comment = body.comment ? str(body.comment, 1, 1000) ?? null : null;
+  // Checkbox is ticked by default in the form. Unticked = absent from the
+  // payload = the user opted to keep their comment private.
+  const commentPublic = isTrue(body.commentPublic);
 
   if (!name) return bad('Name is required.');
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return bad('A valid email is required.');
@@ -116,7 +120,7 @@ export async function POST(req: Request) {
       .update({
         name, city, state, country, age: ageNum,
         guardian_consent: guardianConsent,
-        comment, consent,
+        comment, comment_public: commentPublic, consent,
         verified: true, verified_at: nowIso,
         ip_hash: ipHash, user_agent: userAgent,
       })
@@ -129,7 +133,7 @@ export async function POST(req: Request) {
     const { error } = await sb.from('signatures').insert({
       name, email, city, state, country, age: ageNum,
       guardian_consent: guardianConsent,
-      comment, consent,
+      comment, comment_public: commentPublic, consent,
       verified: true, verified_at: nowIso,
       ip_hash: ipHash, user_agent: userAgent,
     });

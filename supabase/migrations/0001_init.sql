@@ -20,6 +20,7 @@ create table if not exists public.signatures (
   age             smallint      not null check (age between 5 and 120),
   guardian_consent boolean      not null default false,
   comment         text          check (comment is null or char_length(comment) <= 1000),
+  comment_public  boolean       not null default true,
   consent         boolean       not null default false,
   verified        boolean       not null default false,
   verified_at     timestamptz,
@@ -62,15 +63,13 @@ create or replace view public.signature_count as
 create or replace view public.public_comments as
   select
     split_part(name, ' ', 1)            as first_name,
-    city,
-    state,
-    country,
     comment,
     created_at
   from public.signatures
   where verified = true
     and comment is not null
     and char_length(trim(comment)) > 0
+    and comment_public = true
   order by created_at desc;
 
 -- ---------------------------------------------------------------------------
@@ -101,14 +100,25 @@ revoke all on function public.get_signature_count() from public;
 grant execute on function public.get_signature_count() to anon, authenticated;
 
 create or replace function public.get_public_comments(limit_count int default 50)
-returns table (first_name text, city text, state text, country text, comment text, created_at timestamptz)
+returns table (
+  signature_number int,
+  first_name text,
+  comment text,
+  created_at timestamptz
+)
 language sql
 security definer
 set search_path = public
 as $$
-  select split_part(name, ' ', 1), city, state, country, comment, created_at
-  from public.signatures
-  where verified = true and comment is not null and char_length(trim(comment)) > 0
+  with ranked as (
+    select id, name, comment, comment_public, created_at,
+           row_number() over (order by created_at asc) as signature_number
+    from public.signatures
+    where verified = true
+  )
+  select signature_number::int, split_part(name, ' ', 1), comment, created_at
+  from ranked
+  where comment is not null and char_length(trim(comment)) > 0 and comment_public = true
   order by created_at desc
   limit greatest(1, least(limit_count, 200));
 $$;

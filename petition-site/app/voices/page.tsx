@@ -3,7 +3,12 @@ import { headers } from 'next/headers';
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
-type Comment = { first_name: string; comment: string; created_at: string };
+type Comment = {
+  signature_number: number | null;
+  first_name: string;
+  comment: string;
+  created_at: string;
+};
 
 async function getComments(): Promise<Comment[]> {
   const h = headers();
@@ -53,13 +58,19 @@ export default async function VoicesPage() {
         <ul className="flex flex-col gap-6">
           {items.map((c, i) => (
             <li key={i} className="border-l-2 border-black/10 pl-4 flex flex-col gap-2">
+              <div className="flex items-baseline justify-between gap-3">
+                <span className="text-xs font-medium text-accent">
+                  {c.signature_number != null ? `Signature #${c.signature_number}` : ''}
+                </span>
+                <time className="text-[11px] text-muted" dateTime={c.created_at}>
+                  {formatDate(c.created_at)}
+                </time>
+              </div>
               <p className="text-ink/90 leading-relaxed whitespace-pre-line">
                 {c.comment}
               </p>
               <div className="text-xs text-muted">
                 — <span className="font-medium text-ink/70">{c.first_name}</span>
-                <span aria-hidden> · </span>
-                <time dateTime={c.created_at}>{formatDate(c.created_at)}</time>
               </div>
             </li>
           ))}

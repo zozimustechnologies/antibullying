@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 export function SignatureCounter() {
@@ -24,14 +25,21 @@ export function SignatureCounter() {
   return (
     <div className="flex flex-col gap-2">
       <div className="flex items-baseline justify-between">
-        <div className="font-serif text-3xl">
+        <Link
+          href="/voices"
+          aria-label="See all signatures"
+          className="font-serif text-3xl underline-offset-4 hover:underline"
+        >
           {count != null ? count.toLocaleString('en-IN') : '—'}
-        </div>
+        </Link>
         <div className="text-xs text-muted">of {target.toLocaleString('en-IN')}</div>
       </div>
       <div className="h-2 w-full bg-black/10 rounded-full overflow-hidden">
         <div className="h-full bg-accent transition-all" style={{ width: `${pct}%` }} />
       </div>
+      <Link href="/voices" className="text-[11px] text-muted underline self-end">
+        Read what people are saying →
+      </Link>
     </div>
   );
 }
