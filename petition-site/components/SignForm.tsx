@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-type Stage = 'form' | 'done';
+type Stage = 'form' | 'done' | 'already';
 
 const ENDPOINT_BASE =
   (typeof process !== 'undefined' && process.env.NEXT_PUBLIC_SIGN_ENDPOINT) || '';
@@ -104,7 +104,7 @@ export function SignForm() {
       if (json.count != null) setSignedCount(json.count);
       // Notify any SignatureCounter on the same page to refresh immediately.
       window.dispatchEvent(new CustomEvent('signature-added'));
-      setStage('done');
+      setStage(json.alreadySigned ? 'already' : 'done');
     } catch {
       setBusy(false);
       // Static deploy with no backend — record locally so we never lose a signature.
@@ -115,6 +115,27 @@ export function SignForm() {
       } catch {}
       setStage('done');
     }
+  }
+
+  if (stage === 'already') {
+    return (
+      <div className="flex flex-col gap-4">
+        <h2 className="font-serif text-2xl">You've already signed!</h2>
+        <p className="text-sm text-ink/80">
+          This email address has already been used to sign the petition. Each person can sign only once — but you can still help by sharing it.
+        </p>
+        <a
+          className="bg-ink text-paper rounded-full py-2.5 text-sm text-center"
+          href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
+            'I signed the petition to make anti-bullying a law in India. 100,000 signatures go to Parliament. Add yours: ',
+          )}https://standup-petition.vercel.app/sign/`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Share on X
+        </a>
+      </div>
+    );
   }
 
   if (stage === 'done') {
