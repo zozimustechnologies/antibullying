@@ -12,7 +12,7 @@ export function SignatureCounter() {
       (typeof process !== 'undefined' && process.env.NEXT_PUBLIC_SIGN_ENDPOINT) || '';
     const url = base ? `${base}/count` : '/api/count';
     const fetchCount = () =>
-      fetch(url)
+      fetch(url, { cache: 'no-store' })
         .then((r) => (r.ok ? r.json() : Promise.reject()))
         .then((d) => {
           setCount(d.count ?? 0);

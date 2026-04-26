@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 type Stage = 'form' | 'done' | 'already';
 
 const PETITION_URL = 'https://standup-petition.vercel.app/sign/';
-const SHARE_TEXT = 'I just signed the petition to make anti-bullying a law in India. 100,000 signatures go to Parliament. Add yours:';
+const SHARE_TEXT = 'This 13-year-old started a petition to make India anti-bullying. I just signed it — 100,000 signatures go to Parliament. Add yours:';
 
 const PLATFORMS = [
   { id: 'x', label: 'X' },
