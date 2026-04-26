@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Anything involving the founder, his school, or his identity
+    url: mailto:safeguards@zozimustechnologies.example
+    about: Do NOT open a public issue. Email the designated guardian-mentor.
+  - name: Press, interviews, partnerships
+    url: mailto:press@zozimustechnologies.example
+    about: All media routed through the designated adult spokesperson.

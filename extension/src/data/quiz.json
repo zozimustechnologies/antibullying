@@ -1,0 +1,120 @@
+{
+  "version": 1,
+  "intro": {
+    "title": "Do you know bullying when you see it?",
+    "subtitle": "7 short questions. Most people get at least 3 wrong — including the ones that matter most."
+  },
+  "questions": [
+    {
+      "id": "q1-definition",
+      "prompt": "Which of these is NOT bullying?",
+      "options": [
+        { "id": "a", "text": "A classmate calls another classmate 'mota' every single day for months." },
+        { "id": "b", "text": "Two friends in the same group tease each other and both laugh." },
+        { "id": "c", "text": "A senior repeatedly takes a junior's lunch money." },
+        { "id": "d", "text": "A group of students systematically ignore one girl for an entire term." }
+      ],
+      "correct": "b",
+      "why": "Mutual, consensual teasing between equals is not bullying. Bullying needs three ingredients together: repetition, intent to harm, and a power imbalance. Most parents — and many teachers — cannot name those three. That gap is where most bullying hides.",
+      "world": "Norway, Sweden, Japan, the UK, the US — all define bullying in statute so schools cannot quietly disagree.",
+      "india": "There is no national legal definition of school bullying in India. Each school decides for itself.",
+      "stat": "1 in 3 Indian school children report being bullied. — UNESCO, 2019"
+    },
+    {
+      "id": "q2-laughing-along",
+      "prompt": "A boy is called a slur by the same group every PE class. He laughs along because he's scared. This is:",
+      "options": [
+        { "id": "a", "text": "Just teasing — he's laughing." },
+        { "id": "b", "text": "Banter. Boys will be boys." },
+        { "id": "c", "text": "Bullying." },
+        { "id": "d", "text": "Only bullying if he complains." }
+      ],
+      "correct": "c",
+      "why": "A victim laughing is one of the most common survival responses. The test is not the victim's reaction — it is whether the target has the power to make it stop. 'Boys will be boys' is one of the most damaging phrases in Indian parenting.",
+      "world": "South Korea's School Violence Prevention Act puts the duty on the school to investigate, regardless of whether the victim filed a complaint.",
+      "india": "With no binding law, most Indian schools act only when a parent escalates — and even then, optionally.",
+      "stat": "Over 70% of bullying incidents in Indian schools are never reported."
+    },
+    {
+      "id": "q3-scale",
+      "prompt": "How many school students in India report being bullied at least once a month?",
+      "options": [
+        { "id": "a", "text": "About 1 in 20" },
+        { "id": "b", "text": "About 1 in 10" },
+        { "id": "c", "text": "About 1 in 4" },
+        { "id": "d", "text": "About 1 in 3" }
+      ],
+      "correct": "d",
+      "why": "Closer to 1 in 3 — and that is only what gets reported. The real number is almost certainly higher.",
+      "world": "Countries that legislated saw drops in reported school-violence severity within a decade (e.g., South Korea post-2012 reforms).",
+      "india": "We measure bullying mainly through one-off academic surveys — not a mandated, recurring national audit.",
+      "stat": "UNESCO, Behind the Numbers, 2019."
+    },
+    {
+      "id": "q4-law-gap",
+      "prompt": "Which of these countries has NO standalone national anti-bullying law?",
+      "options": [
+        { "id": "a", "text": "Norway" },
+        { "id": "b", "text": "Sweden" },
+        { "id": "c", "text": "Japan" },
+        { "id": "d", "text": "India" }
+      ],
+      "correct": "d",
+      "why": "Most people assume India must have one. We have UGC anti-ragging regulations for colleges (2009) and POCSO for sexual offences — but school bullying itself has no binding national statute. We have CBSE circulars and NCPCR guidelines. They are advisory.",
+      "world": "Norway: Education Act §9A — every child has a legal right to a safe school. Sweden: schools must publish an annual anti-bullying plan, by law. Japan: 2013 Act after a student's suicide. South Korea: permanent record on the bully's file. UK: statutory duty on head teachers. US: all 50 states.",
+      "india": "Guidelines, not law. A school can follow them — or not.",
+      "stat": "India is among the most populous countries without a dedicated school anti-bullying statute."
+    },
+    {
+      "id": "q5-parent-dilemma",
+      "prompt": "Your 12-year-old has been quiet for three weeks. You learn a group at school keeps mocking her accent. She begs you not to talk to the school. The best first step is:",
+      "options": [
+        { "id": "a", "text": "Respect her wishes — kids must learn resilience." },
+        { "id": "b", "text": "Go straight to the principal tomorrow." },
+        { "id": "c", "text": "Listen, validate, document incidents with dates, and together decide when to escalate — but do not stay silent." },
+        { "id": "d", "text": "Tell her to hit back once so they stop." }
+      ],
+      "correct": "c",
+      "why": "'Let them handle it' is advice built for conflict between equals — not for bullying, where the power imbalance means a child cannot resolve it alone. Documentation matters: without a law, your written record is often the only leverage you'll have with a school.",
+      "world": "In Sweden and Norway, the school is legally required to act once notified. In India, you are negotiating goodwill.",
+      "india": "Parents are caught between 'don't be soft' and 'don't be a complainer.' Both extremes fail the child.",
+      "stat": "Children whose parents intervened with documentation report better outcomes than those whose parents went in cold or stayed out entirely."
+    },
+    {
+      "id": "q6-impact",
+      "prompt": "Children who are bullied for prolonged periods are more likely to experience: (pick all that apply)",
+      "multi": true,
+      "options": [
+        { "id": "a", "text": "Clinical depression and anxiety into adulthood" },
+        { "id": "b", "text": "Significantly higher risk of suicidal ideation" },
+        { "id": "c", "text": "Lower academic performance and school dropout" },
+        { "id": "d", "text": "Chronic physical symptoms — sleep loss, headaches, weakened immunity" },
+        { "id": "e", "text": "Difficulty forming trusting relationships, even decades later" }
+      ],
+      "correct": ["a", "b", "c", "d", "e"],
+      "why": "All of them. Bullying is not a 'phase.' It rewires a developing brain's threat-response system. The trauma outlives the bully, the school, and often the silence around it.",
+      "world": "Countries that legislated and tracked outcomes have seen measurable drops in school-violence-linked youth mental-health crises.",
+      "india": "We do not even systematically measure this at a national level.",
+      "stat": "Long-term harm is the rule, not the exception, when bullying is sustained and unaddressed."
+    },
+    {
+      "id": "q7-cyber",
+      "prompt": "A 14-year-old's morphed photo is circulated on an Instagram group by classmates. Under CURRENT Indian law, the school is legally required to:",
+      "options": [
+        { "id": "a", "text": "Investigate within 48 hours and report to police." },
+        { "id": "b", "text": "Suspend the students involved." },
+        { "id": "c", "text": "Provide mandatory counselling to the victim." },
+        { "id": "d", "text": "Nothing specific — there is no binding national rule. Action depends on the school's own policy." }
+      ],
+      "correct": "d",
+      "why": "Sections of the IT Act and POCSO can sometimes be invoked AFTER harm is done — but there is no preventive, school-level legal duty.",
+      "world": "The UK's Education and Inspections Act 2006 places a statutory duty on head teachers to prevent bullying — including online — among pupils.",
+      "india": "Cyberbullying among students is one of the largest gaps in current Indian regulation.",
+      "stat": "Cyberbullying reports among Indian teens have risen sharply post-2020."
+    }
+  ],
+  "outro": {
+    "tone": "We do not shame wrong answers.",
+    "fallbackForWrong": "You're not alone — most people get this wrong. That's exactly why this needs to change."
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "country": "IN",
+  "intro": "If anything you're reading brings something up — for you or someone you love — please reach out. These are free, confidential, and 24/7.",
+  "lines": [
+    {
+      "name": "CHILDLINE India",
+      "number": "1098",
+      "for": "Any child in distress, or any adult worried about a child.",
+      "url": "https://www.childlineindia.org/"
+    },
+    {
+      "name": "iCall (TISS)",
+      "number": "+91 9152987821",
+      "for": "Free counselling for young people and adults — Hindi, English, and several Indian languages.",
+      "url": "https://icallhelpline.org/"
+    },
+    {
+      "name": "Vandrevala Foundation",
+      "number": "1860 2662 345",
+      "for": "24/7 mental-health support for anyone in distress.",
+      "url": "https://www.vandrevalafoundation.com/"
+    },
+    {
+      "name": "KIRAN — Mental Health Helpline (Govt. of India)",
+      "number": "1800-599-0019",
+      "for": "24/7 toll-free mental-health rehabilitation helpline.",
+      "url": "https://www.mohfw.gov.in/"
+    }
+  ],
+  "note": "If a child is in immediate danger, call 112 (national emergency)."
+}

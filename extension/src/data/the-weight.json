@@ -1,0 +1,97 @@
+{
+  "version": 1,
+  "screens": [
+    {
+      "id": "ack",
+      "lines": [
+        "You just answered 7 questions about bullying.",
+        "Most people in India have never been asked even one."
+      ]
+    },
+    {
+      "id": "scale",
+      "lines": [
+        "1 in 3 Indian school children are bullied.",
+        "More than 70% never tell anyone.",
+        "That is roughly 80 million children carrying it alone."
+      ],
+      "source": "UNESCO, NCERT studies"
+    },
+    {
+      "id": "parent",
+      "lines": [
+        "Somewhere tonight, a parent will tell their child:",
+        "“Just ignore them.”",
+        "“Don't be so sensitive.”",
+        "“Handle it yourself.”",
+        "",
+        "They are not bad parents.",
+        "They were never taught the difference between",
+        "a fight a child can win — and one they cannot."
+      ]
+    },
+    {
+      "id": "impact",
+      "lines": [
+        "Children bullied for years are far more likely",
+        "to live with anxiety, depression, and sleeplessness",
+        "long after school ends.",
+        "",
+        "The bully often forgets by next semester.",
+        "The child rarely does."
+      ],
+      "hasHardNumbersToggle": true
+    },
+    {
+      "id": "law",
+      "lines": [
+        "Norway has a law.",
+        "Sweden has a law.",
+        "Japan has a law.",
+        "South Korea has a law.",
+        "The UK has a law. The US has 50 of them.",
+        "",
+        "India has a guideline.",
+        "A school can follow it. Or not.",
+        "Most don't."
+      ]
+    },
+    {
+      "id": "silence",
+      "lines": [
+        "Every year this stays a 'guideline,'",
+        "another generation of children learns",
+        "that adults will not protect them.",
+        "",
+        "That is the lesson they carry into adulthood.",
+        "That is the lesson that becomes the next generation of bullies."
+      ]
+    },
+    {
+      "id": "founder",
+      "lines": [
+        "This extension was started by a 13-year-old",
+        "who has been bullied for the last three years.",
+        "He is still in school. He is still going through it.",
+        "He decided that waiting until he was an adult to fix this",
+        "was too long for the next kid.",
+        "",
+        "If you have two minutes, please read his story."
+      ],
+      "ctaPrimary": { "label": "Read his story", "to": "founder" },
+      "ctaSecondary": { "label": "Skip to the petition", "to": "petition" }
+    },
+    {
+      "id": "ask",
+      "lines": [
+        "You cannot un-know what you just learned.",
+        "One signature is one parliamentarian harder to ignore.",
+        "We need 100,000.",
+        "",
+        "Sign the petition to make anti-bullying a law in India."
+      ],
+      "ctaPrimary": { "label": "Sign now", "to": "petition" },
+      "ctaSecondary": { "label": "Share with one person", "to": "share" }
+    }
+  ]
+}

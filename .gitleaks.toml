@@ -1,0 +1,37 @@
+# Gitleaks rules. Adds custom rules to protect the minor founder's identity.
+# Replace the placeholder values below with the actual values to scan against,
+# stored OUT of the repo. Use `gitleaks detect --config .gitleaks.toml`.
+
+title = "antibullying repo gitleaks config"
+
+[extend]
+useDefault = true
+
+# --- Custom rules: minor-founder PII -----------------------------------------
+# Keep the actual strings in a private file (e.g. ~/.antibullying-pii.toml)
+# and pass with --baseline-path or via a CI secret. The patterns below are
+# placeholders; CI replaces them at runtime.
+
+[[rules]]
+id      = "founder-full-name"
+description = "Founder's full name must not appear in code or content."
+regex   = '''__FOUNDER_FULL_NAME__'''
+tags    = ["pii", "minor"]
+
+[[rules]]
+id      = "founder-school-name"
+description = "Founder's school name must not appear."
+regex   = '''__FOUNDER_SCHOOL_NAME__'''
+tags    = ["pii", "minor"]
+
+[[rules]]
+id      = "founder-city-and-name"
+description = "Founder's city + first name combination."
+regex   = '''__FOUNDER_CITY_AND_NAME__'''
+tags    = ["pii", "minor"]
+
+[[rules]]
+id      = "bully-names"
+description = "Names of alleged bullies must never appear (defamation + retaliation risk)."
+regex   = '''__BULLY_NAMES_REGEX__'''
+tags    = ["legal", "minor"]

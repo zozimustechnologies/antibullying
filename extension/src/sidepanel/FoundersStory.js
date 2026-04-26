@@ -1,0 +1,8 @@
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import data from '../data/founders-story.json';
+export function FoundersStory() {
+    if (!data.published) {
+        return (_jsxs("div", { className: "flex flex-col gap-3 max-w-md", children: [_jsx("div", { className: "text-xs uppercase tracking-widest text-muted", children: "A note from the team" }), _jsx("h2", { className: "font-serif text-2xl leading-snug", children: data.placeholderHeading }), _jsx("p", { className: "text-sm leading-relaxed text-ink/80", children: data.placeholderBody }), _jsx("div", { className: "text-[11px] text-muted pt-3 border-t border-black/10 mt-3 leading-relaxed", children: "The founder is 13 years old. We follow a strict safeguarding protocol \u2014 guardian consent, child-psychologist review, no naming of bullies or the school, and a one-tap takedown route. You can read the protocol in our public repo." })] }));
+    }
+    return (_jsxs("article", { className: "flex flex-col gap-3 max-w-md", children: [_jsx("div", { className: "text-xs uppercase tracking-widest text-muted", children: "A first-person account" }), _jsx("h2", { className: "font-serif text-2xl leading-snug", children: data.story.title }), data.story.byline && (_jsxs("div", { className: "text-xs text-muted", children: ["\u2014 ", data.story.byline] })), _jsx("div", { className: "text-[11px] text-muted leading-relaxed border-l-2 border-accent pl-3", children: "Content note: this is a real account written by a 13-year-old. If you're a young person reading this and any of it feels familiar, you are not alone. CHILDLINE 1098 is free and 24/7." }), _jsx("div", { className: "text-base leading-relaxed whitespace-pre-line font-serif", children: data.story.body })] }));
+}

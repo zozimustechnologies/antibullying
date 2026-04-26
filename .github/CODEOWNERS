@@ -1,0 +1,8 @@
+# Default
+*                                                       @zozimustechnologies
+
+# Minor-founder safeguards — require guardian-mentor review
+/docs/safeguards/                                       @zozimustechnologies
+/extension/src/sidepanel/FoundersStory.tsx              @zozimustechnologies
+/extension/src/data/founders-story.json                 @zozimustechnologies
+/petition-site/content/founders-story.mdx               @zozimustechnologies

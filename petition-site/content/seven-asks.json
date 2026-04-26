@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "title": "Seven things every Indian child deserves — that the law already gives children abroad.",
+  "intro": "We compared the school anti-bullying frameworks of Sweden, Norway, South Korea, the United States, and Australia. India has no equivalent national law — only advisory guidelines. These are the seven specific protections we are asking the Indian Parliament to enshrine in a dedicated School Anti-Bullying Act.",
+  "asks": [
+    {
+      "n": 1,
+      "title": "A statutory right to a safe learning environment.",
+      "ask": "Every child in India should have a legally enforceable right to attend school free from bullying — physical, verbal, social, and online. Not a circular. A right.",
+      "abroad": "Norway, Education Act §9A: every pupil has the right to a safe and good school environment. The law is enforceable; the State can intervene against schools that fail.",
+      "indiaToday": "CBSE and NCPCR guidelines describe what a school 'should' do. Nothing in Indian statute gives a child the right to demand it."
+    },
+    {
+      "n": 2,
+      "title": "An active duty on every school to act — not wait to be told.",
+      "ask": "Make it a legal duty of every school (public and private) to investigate suspected bullying the moment a teacher, parent, or peer signals it. No complaint letter required. No 'official channel' to file through first.",
+      "abroad": "Sweden, Education Act Chapter 6: schools have an active 'duty to investigate' as soon as bullying is suspected. South Korea's School Violence Prevention Act mandates schools to investigate even without a victim's complaint.",
+      "indiaToday": "Most Indian schools act only after a parent escalates — and even then, optionally. Power-imbalanced children stay silent and the system rewards silence."
+    },
+    {
+      "n": 3,
+      "title": "Cyberbullying covered explicitly — including off-campus, on-phone, after hours.",
+      "ask": "Bring online bullying among schoolmates squarely under the school's legal duty, even when it happens outside school hours or off-premises. Morphed photos, group chats, anonymous accounts — all of it.",
+      "abroad": "United Kingdom, Education and Inspections Act 2006: head teachers have statutory power and duty to address pupil-on-pupil bullying including off-site and online conduct. Several US states (e.g., New Jersey, California) explicitly cover cyberbullying.",
+      "indiaToday": "IT Act sections and POCSO can be invoked after harm — but no preventive school-level legal duty exists for cyberbullying in India."
+    },
+    {
+      "n": 4,
+      "title": "An annual, published, audited anti-bullying plan in every school.",
+      "ask": "Every school must publish, every year, a written anti-bullying plan with named responsible staff, escalation routes, and prevention training — and submit it to an independent education regulator that audits compliance.",
+      "abroad": "Sweden requires every school to publish an annual equal-treatment / anti-bullying plan; the Schools Inspectorate audits it. Australia's National Safe Schools Framework mandates each school adopt and document a plan.",
+      "indiaToday": "Most Indian schools have no public anti-bullying plan. Parents have no way to compare schools, and no regulator checks."
+    },
+    {
+      "n": 5,
+      "title": "Mandatory teacher training and a counsellor in every school.",
+      "ask": "Make trauma-informed bullying-prevention training a mandatory part of teacher certification and continuous professional development. Mandate access to a trained counsellor for every school above a minimum size.",
+      "abroad": "South Korea's School Violence Prevention Act mandates regular training for teachers and trained counsellors at school level. Australian states fund counsellor positions and require staff PD on bullying.",
+      "indiaToday": "No mandatory teacher training on bullying. Counsellors exist mostly in elite urban private schools. Most Indian children have no trained adult to disclose to."
+    },
+    {
+      "n": 6,
+      "title": "An independent escalation route — beyond the school itself.",
+      "ask": "Set up an independent ombudsman / school-violence committee at the district and state level, that families can appeal to when a school fails to act. Findings should be public (anonymised) and binding.",
+      "abroad": "South Korea's School Violence Committees sit outside the principal's office and can compel action. Norway's County Governor and Sweden's Schools Inspectorate hear complaints when schools fail.",
+      "indiaToday": "If an Indian school refuses to act, parents have no clear, free, fast escalation path. They negotiate goodwill or hire a lawyer."
+    },
+    {
+      "n": 7,
+      "title": "Annual public data — so we know if the law is working.",
+      "ask": "Mandate every school to report anonymised bullying data annually to a national dashboard: number of incidents, types, response times, outcomes. Without measurement, there is no accountability.",
+      "abroad": "United States: most state laws require schools to report bullying data; some states publish school-level statistics. Australia and the UK collect and publish national data.",
+      "indiaToday": "India has no mandated national bullying-incidence reporting. We rely on one-off academic surveys (e.g., UNESCO 2019). The state cannot fix what it does not measure."
+    }
+  ],
+  "closing": "We are not asking for something experimental. We are asking for what children in Norway, Sweden, South Korea, the United States, the United Kingdom, Australia and Japan already have. India is a notable absence on that list. Make us a country that protects children by law, not by luck."
+}
