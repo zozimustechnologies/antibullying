@@ -1,4 +1,5 @@
 import { SignForm } from '@/components/SignForm';
+import { SignatureCounter } from '@/components/SignatureCounter';
 import { SevenAsks } from '@/components/SevenAsks';
 
 export default function SignPage() {
@@ -14,6 +15,9 @@ export default function SignPage() {
           Your details are never shared.
         </p>
       </header>
+      <div className="rounded-2xl border border-black/10 p-4 bg-white/60">
+        <SignatureCounter />
+      </div>
       <SignForm />
       <SevenAsks />
     </main>

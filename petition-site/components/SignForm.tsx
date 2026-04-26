@@ -102,6 +102,8 @@ export function SignForm() {
         return;
       }
       if (json.count != null) setSignedCount(json.count);
+      // Notify any SignatureCounter on the same page to refresh immediately.
+      window.dispatchEvent(new CustomEvent('signature-added'));
       setStage('done');
     } catch {
       setBusy(false);

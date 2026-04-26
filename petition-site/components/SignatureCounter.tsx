@@ -20,12 +20,21 @@ export function SignatureCounter() {
         })
         .catch(() => {});
     fetchCount();
-    // Re-fetch when user returns to the tab (e.g. after signing on /sign).
+    // Poll every 15s so the count stays fresh while the user is on the page.
+    const interval = setInterval(fetchCount, 15_000);
+    // Also re-fetch when user returns to the tab.
     const onVisible = () => {
       if (document.visibilityState === 'visible') fetchCount();
     };
+    // Re-fetch immediately when a signature is added on the same page.
+    const onSigned = () => fetchCount();
     document.addEventListener('visibilitychange', onVisible);
-    return () => document.removeEventListener('visibilitychange', onVisible);
+    window.addEventListener('signature-added', onSigned);
+    return () => {
+      clearInterval(interval);
+      document.removeEventListener('visibilitychange', onVisible);
+      window.removeEventListener('signature-added', onSigned);
+    };
   }, []);
 
   const pct = count != null ? Math.min(100, (count / target) * 100) : 0;
