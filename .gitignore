@@ -12,3 +12,5 @@ out/
 .idea/
 coverage/
 .turbo/
+
+body*.json
