@@ -17,12 +17,13 @@ export async function GET(req: Request) {
     console.error('comments rpc failed', error);
     return NextResponse.json({ items: [], error: 'rpc' });
   }
-  // Strip any unexpected fields — only first name, signature #, comment, timestamp.
+  // Strip any unexpected fields — only first name, signature #, comment, anonymous flag, timestamp.
   const items = (data ?? []).map(
-    (r: { signature_number?: number; first_name: string; comment: string; created_at: string }) => ({
+    (r: { signature_number?: number; first_name: string | null; comment: string | null; is_anonymous?: boolean; created_at: string }) => ({
       signature_number: r.signature_number ?? null,
       first_name: r.first_name,
       comment: r.comment,
+      is_anonymous: r.is_anonymous ?? false,
       created_at: r.created_at,
     }),
   );

@@ -87,6 +87,7 @@ returns table (
   signature_number int,
   first_name text,
   comment text,
+  is_anonymous boolean,
   created_at timestamptz
 )
 language sql
@@ -99,9 +100,15 @@ as $$
     from public.signatures
     where verified = true
   )
-  select signature_number::int, split_part(name, ' ', 1), comment, created_at
+  select
+    signature_number::int,
+    case when comment_public then split_part(name, ' ', 1) else null end,
+    case when comment_public then comment else null end,
+    not comment_public as is_anonymous,
+    created_at
   from ranked
-  where comment is not null and char_length(trim(comment)) > 0 and comment_public = true
+  where comment_public = true
+     or (comment_public = false)
   order by created_at desc
   limit greatest(1, least(limit_count, 200));
 $$;

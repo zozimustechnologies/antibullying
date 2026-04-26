@@ -5,8 +5,9 @@ export const revalidate = 0;
 
 type Comment = {
   signature_number: number | null;
-  first_name: string;
-  comment: string;
+  first_name: string | null;
+  comment: string | null;
+  is_anonymous: boolean;
   created_at: string;
 };
 
@@ -66,12 +67,18 @@ export default async function VoicesPage() {
                   {formatDate(c.created_at)}
                 </time>
               </div>
-              <p className="text-ink/90 leading-relaxed whitespace-pre-line">
-                {c.comment}
-              </p>
-              <div className="text-xs text-muted">
-                — <span className="font-medium text-ink/70">{c.first_name}</span>
-              </div>
+              {c.is_anonymous ? (
+                <p className="text-ink/50 italic text-sm">The petitioner chose to remain anonymous.</p>
+              ) : (
+                <>
+                  <p className="text-ink/90 leading-relaxed whitespace-pre-line">
+                    {c.comment}
+                  </p>
+                  <div className="text-xs text-muted">
+                    — <span className="font-medium text-ink/70">{c.first_name}</span>
+                  </div>
+                </>
+              )}
             </li>
           ))}
         </ul>
