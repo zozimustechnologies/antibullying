@@ -1,0 +1,61 @@
+// Block obvious throwaway / disposable email providers. Not exhaustive — the
+// real defenses are rate-limit + Turnstile + honeypot + time-on-form. This
+// list just stops the laziest abuse.
+const DISPOSABLE_DOMAINS = new Set([
+  '10minutemail.com',
+  '10minutemail.net',
+  'temp-mail.org',
+  'tempmail.com',
+  'tempmail.net',
+  'tempmailer.com',
+  'mailinator.com',
+  'mailinator.net',
+  'mailinator2.com',
+  'guerrillamail.com',
+  'guerrillamail.net',
+  'guerrillamail.org',
+  'guerrillamail.biz',
+  'sharklasers.com',
+  'grr.la',
+  'yopmail.com',
+  'yopmail.net',
+  'throwawaymail.com',
+  'getairmail.com',
+  'getnada.com',
+  'inboxbear.com',
+  'maildrop.cc',
+  'mintemail.com',
+  'mohmal.com',
+  'fakeinbox.com',
+  'trashmail.com',
+  'trashmail.de',
+  'dispostable.com',
+  'spambog.com',
+  'spambog.de',
+  'mailcatch.com',
+  'tempinbox.com',
+  'mvrht.net',
+  'emailondeck.com',
+  'fakemail.net',
+  'mytemp.email',
+  'tmpmail.org',
+  'tmpmail.net',
+  'mail-temp.com',
+  'mailtemp.uk',
+  'tmpemail.com',
+  'mail.tm',
+  'monemail.fr.nf',
+  'incognitomail.org',
+  'jetable.org',
+  'spamgourmet.com',
+  'mail7.io',
+  'easytrashmail.com',
+  'mailboxy.fun',
+  'tempinbox.xyz',
+]);
+
+export function isDisposableEmail(email: string): boolean {
+  const domain = email.toLowerCase().split('@')[1];
+  if (!domain) return false;
+  return DISPOSABLE_DOMAINS.has(domain);
+}
