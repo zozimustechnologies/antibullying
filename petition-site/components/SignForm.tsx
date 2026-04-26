@@ -23,7 +23,7 @@ function getShareUrl(platform: string) {
     case 'facebook':
       return `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(PETITION_URL)}&quote=${encodeURIComponent(SHARE_TEXT)}`;
     case 'whatsapp':
-      return `https://wa.me/?text=${encodeURIComponent(text)}`;
+      return `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
     case 'email':
       return `mailto:?subject=${encodeURIComponent('Sign the anti-bullying petition')}&body=${encodeURIComponent(text)}`;
     case 'x':
