@@ -5,13 +5,13 @@ import { SevenAsks } from '@/components/SevenAsks';
 export default function HomePage() {
   return (
     <main className="max-w-3xl mx-auto px-6 py-16 flex flex-col gap-10">
-      <header className="flex items-center justify-between">
+      <header className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <div className="font-serif text-2xl">StandUp</div>
-        <nav className="flex gap-4 text-sm text-muted">
-          <Link href="/about">Why a law</Link>
-          <Link href="/world">Around the world</Link>
-          <Link href="/voices">Voices</Link>
-          <Link href="/founder">His story</Link>
+        <nav className="flex gap-2 sm:gap-4 text-sm text-muted overflow-x-auto w-full sm:w-auto">
+          <Link href="/about" className="whitespace-nowrap px-3 py-1.5 rounded-full border border-black/10 hover:bg-black/5 transition">Why a law</Link>
+          <Link href="/world" className="whitespace-nowrap px-3 py-1.5 rounded-full border border-black/10 hover:bg-black/5 transition">Around the world</Link>
+          <Link href="/voices" className="whitespace-nowrap px-3 py-1.5 rounded-full border border-black/10 hover:bg-black/5 transition">Voices</Link>
+          <Link href="/founder" className="whitespace-nowrap px-3 py-1.5 rounded-full border border-black/10 hover:bg-black/5 transition">His story</Link>
         </nav>
       </header>
 
