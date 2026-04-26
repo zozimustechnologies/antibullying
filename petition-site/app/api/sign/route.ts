@@ -144,10 +144,7 @@ export async function POST(req: Request) {
   }
 
   // Fetch updated count so the client can show it immediately.
-  const { count: newCount } = await sb
-    .from('signatures')
-    .select('id', { count: 'exact', head: true })
-    .eq('verified', true);
+  const { data: newCount } = await sb.rpc('get_signature_count');
 
   return NextResponse.json({ ok: true, count: newCount ?? 0 });
 }

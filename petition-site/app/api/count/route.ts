@@ -14,11 +14,7 @@ export async function GET() {
     );
   }
   const sb = supabaseAdmin();
-  // Direct count is more reliable than scalar RPC across Supabase JS versions.
-  const { count, error } = await sb
-    .from('signatures')
-    .select('id', { count: 'exact', head: true })
-    .eq('verified', true);
+  const { data, error } = await sb.rpc('get_signature_count');
   if (error) {
     console.error('count query failed', error);
     return NextResponse.json(
@@ -27,7 +23,7 @@ export async function GET() {
     );
   }
   return NextResponse.json(
-    { count: count ?? 0, target: TARGET, configured: true },
+    { count: data ?? 0, target: TARGET, configured: true },
     { headers: { 'Cache-Control': 'no-store' } },
   );
 }
