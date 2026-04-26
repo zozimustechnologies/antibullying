@@ -4,6 +4,59 @@ import { useEffect, useRef, useState } from 'react';
 
 type Stage = 'form' | 'done' | 'already';
 
+const PETITION_URL = 'https://standup-petition.vercel.app/sign/';
+const SHARE_TEXT = 'I just signed the petition to make anti-bullying a law in India. 100,000 signatures go to Parliament. Add yours:';
+
+const PLATFORMS = [
+  { id: 'x', label: 'X' },
+  { id: 'linkedin', label: 'LinkedIn' },
+  { id: 'facebook', label: 'Facebook' },
+  { id: 'whatsapp', label: 'WhatsApp' },
+  { id: 'email', label: 'Email' },
+] as const;
+
+function getShareUrl(platform: string) {
+  const text = `${SHARE_TEXT} ${PETITION_URL}`;
+  switch (platform) {
+    case 'linkedin':
+      return `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(PETITION_URL)}`;
+    case 'facebook':
+      return `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(PETITION_URL)}&quote=${encodeURIComponent(SHARE_TEXT)}`;
+    case 'whatsapp':
+      return `https://wa.me/?text=${encodeURIComponent(text)}`;
+    case 'email':
+      return `mailto:?subject=${encodeURIComponent('Sign the anti-bullying petition')}&body=${encodeURIComponent(text)}`;
+    case 'x':
+    default:
+      return `https://twitter.com/intent/tweet?text=${encodeURIComponent(SHARE_TEXT + ' ')}${PETITION_URL}`;
+  }
+}
+
+function ShareDropdown() {
+  const [platform, setPlatform] = useState('x');
+  return (
+    <div className="flex gap-2">
+      <a
+        className="flex-1 bg-ink text-paper rounded-full py-2.5 text-sm text-center"
+        href={getShareUrl(platform)}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Share on {PLATFORMS.find((p) => p.id === platform)?.label ?? 'X'}
+      </a>
+      <select
+        value={platform}
+        onChange={(e) => setPlatform(e.target.value)}
+        className="rounded-full border border-ink/20 bg-white px-3 py-2.5 text-sm"
+      >
+        {PLATFORMS.map((p) => (
+          <option key={p.id} value={p.id}>{p.label}</option>
+        ))}
+      </select>
+    </div>
+  );
+}
+
 const ENDPOINT_BASE =
   (typeof process !== 'undefined' && process.env.NEXT_PUBLIC_SIGN_ENDPOINT) || '';
 const SIGN_URL = ENDPOINT_BASE || '/api/sign';
@@ -124,16 +177,7 @@ export function SignForm() {
         <p className="text-sm text-ink/80">
           This email address has already been used to sign the petition. Each person can sign only once — but you can still help by sharing it.
         </p>
-        <a
-          className="bg-ink text-paper rounded-full py-2.5 text-sm text-center"
-          href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
-            'I signed the petition to make anti-bullying a law in India. 100,000 signatures go to Parliament. Add yours: ',
-          )}https://standup-petition.vercel.app/sign/`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Share on X
-        </a>
+        <ShareDropdown />
       </div>
     );
   }
@@ -153,16 +197,7 @@ export function SignForm() {
         <p className="text-sm text-ink/80">
           Now do one more thing: send this to one person who needs to read it.
         </p>
-        <a
-          className="bg-ink text-paper rounded-full py-2.5 text-sm text-center"
-          href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
-            'I just signed the petition to make anti-bullying a law in India. 100,000 signatures go to Parliament. Add yours: ',
-          )}https://standup-petition.vercel.app/sign/`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Share on X
-        </a>
+        <ShareDropdown />
       </div>
     );
   }
