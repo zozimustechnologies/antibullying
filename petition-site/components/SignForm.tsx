@@ -144,8 +144,31 @@ export function SignForm() {
       <Field name="email" type="email" label="Email" required autoComplete="email" />
       <div className="grid grid-cols-2 gap-3">
         <Field name="city" label="City" required autoComplete="address-level2" />
-        <Field name="state" label="State" required autoComplete="address-level1" />
+        <Field name="state" label="State / Province" required autoComplete="address-level1" />
       </div>
+      <label className="text-sm flex flex-col">
+        Country
+        <select
+          name="country"
+          required
+          defaultValue="India"
+          autoComplete="country-name"
+          className="mt-1 rounded-lg border border-black/15 px-3 py-2 bg-white"
+        >
+          <option value="India">India</option>
+          <option value="United States">United States</option>
+          <option value="United Kingdom">United Kingdom</option>
+          <option value="Canada">Canada</option>
+          <option value="Australia">Australia</option>
+          <option value="United Arab Emirates">United Arab Emirates</option>
+          <option value="Singapore">Singapore</option>
+          <option value="Germany">Germany</option>
+          <option value="Other">Other</option>
+        </select>
+        <span className="text-[11px] text-muted mt-1">
+          Indian diaspora signatures count too — they show Parliament that this matters worldwide.
+        </span>
+      </label>
       <Field name="age" type="number" label="Your age" required />
       <label className="text-xs text-muted flex gap-2 items-start">
         <input type="checkbox" name="guardianConsent" value="yes" className="mt-0.5" />

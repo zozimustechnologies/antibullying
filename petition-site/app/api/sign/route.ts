@@ -16,6 +16,7 @@ type Payload = {
   email?: string;
   city?: string;
   state?: string;
+  country?: string;
   age?: string | number;
   guardianConsent?: string | boolean;
   comment?: string;
@@ -69,6 +70,7 @@ export async function POST(req: Request) {
   const email = str(body.email, 3, 254)?.toLowerCase();
   const city = str(body.city, 1, 80);
   const state = str(body.state, 1, 80);
+  const country = str(body.country, 1, 80) ?? 'India';
   const ageNum = Number(body.age);
   const guardianConsent = isTrue(body.guardianConsent);
   const consent = isTrue(body.consent);
@@ -79,6 +81,7 @@ export async function POST(req: Request) {
   if (isDisposableEmail(email)) return bad('Please use a real email address (not a disposable one).');
   if (!city) return bad('City is required.');
   if (!state) return bad('State is required.');
+  if (!country) return bad('Country is required.');
   if (!Number.isFinite(ageNum) || ageNum < 5 || ageNum > 120) return bad('Age must be between 5 and 120.');
   if (!consent) return bad('Consent is required.');
   if (ageNum < 18 && !guardianConsent) return bad('Under-18 signatories need a guardian to confirm consent.');
@@ -111,7 +114,7 @@ export async function POST(req: Request) {
     const { error } = await sb
       .from('signatures')
       .update({
-        name, city, state, age: ageNum,
+        name, city, state, country, age: ageNum,
         guardian_consent: guardianConsent,
         comment, consent,
         verified: true, verified_at: nowIso,
@@ -124,7 +127,7 @@ export async function POST(req: Request) {
     }
   } else {
     const { error } = await sb.from('signatures').insert({
-      name, email, city, state, age: ageNum,
+      name, email, city, state, country, age: ageNum,
       guardian_consent: guardianConsent,
       comment, consent,
       verified: true, verified_at: nowIso,
