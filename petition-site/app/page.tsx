@@ -50,7 +50,7 @@ export default function HomePage() {
         <h2 className="font-serif text-2xl">Started by a 13-year-old.</h2>
         <p className="text-ink/80 leading-relaxed">
           The founder of this campaign is a 13-year-old who has been bullied for the last
-          2–3 years. He decided that waiting until he was an adult to fix this was too long
+          4 years. He decided that waiting until he was an adult to fix this was too long
           for the next kid. <Link className="underline" href="/founder">Read his story →</Link>
         </p>
       </section>

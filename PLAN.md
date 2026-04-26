@@ -235,7 +235,7 @@ The score screen is **not** the end. It opens straight into a slow, scrollable s
 
 ## 4b. The Founder's Story (a 13-year-old's account)
 
-This section is the emotional anchor of the entire extension. The founder is a **13-year-old child who has been bullied for the past 2–3 years and is still in school.** That single fact changes everything below — the editorial choices, the safeguards, the legal posture, and the public framing.
+This section is the emotional anchor of the entire extension. The founder is a **13-year-old child who has been bullied for the past 4 years and is still in school.** That single fact changes everything below — the editorial choices, the safeguards, the legal posture, and the public framing.
 
 > ⚠️ **Read this section before writing a single word of the story.** It exists to protect the child first and the campaign second.
 

@@ -1,6 +1,6 @@
 # Minor-Founder Safeguards Protocol
 
-The founder of this project is a **13-year-old child** who has been bullied for 2–3 years and is still in school. This document is the operating manual for protecting him while the campaign runs. It is **mandatory reading** for anyone with commit access.
+The founder of this project is a **13-year-old child** who has been bullied for 4 years and is still in school. This document is the operating manual for protecting him while the campaign runs. It is **mandatory reading** for anyone with commit access.
 
 If anything in this document conflicts with another doc, **this document wins.**
 

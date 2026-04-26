@@ -2,7 +2,7 @@
 
 Edge/Chrome extension + petition site campaigning to make **anti-bullying a national law in India**, not just a non-binding guideline.
 
-> Started by a 13-year-old who has been bullied for the last 2–3 years and decided that waiting until he was an adult to fix this was too long for the next kid.
+> Started by a 13-year-old who has been bullied for the last 4 years and decided that waiting until he was an adult to fix this was too long for the next kid.
 
 🌐 **Live site:** https://zozimustechnologies.github.io/antibullying/
 🎯 **Goal:** 100,000 verified signatures to Parliament
