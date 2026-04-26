@@ -18,7 +18,7 @@ create table if not exists public.signatures (
   state           text          not null check (char_length(state) between 1 and 80),
   age             smallint      not null check (age between 5 and 120),
   guardian_consent boolean      not null default false,
-  comment         text          check (comment is null or char_length(comment) <= 400),
+  comment         text          check (comment is null or char_length(comment) <= 1000),
   consent         boolean       not null default false,
   verified        boolean       not null default false,
   verified_at     timestamptz,

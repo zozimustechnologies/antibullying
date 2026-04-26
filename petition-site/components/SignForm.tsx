@@ -18,6 +18,7 @@ export function SignForm() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [pending, setPending] = useState<{ signatureId?: string; email?: string }>({});
+  const [commentLen, setCommentLen] = useState(0);
 
   async function submitForm(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -139,11 +140,17 @@ export function SignForm() {
         <textarea
           name="comment"
           rows={4}
-          maxLength={400}
+          maxLength={1000}
+          onChange={(e) => setCommentLen(e.currentTarget.value.length)}
           placeholder="e.g. “My daughter changed schools twice. The third school finally listened. No family should have to find the right school by trial and error.”"
           className="mt-1 w-full rounded-lg border border-black/15 px-3 py-2 text-sm leading-relaxed"
         />
-        <span className="text-[11px] text-muted self-end">Up to 400 characters</span>
+        <span
+          className={`text-[11px] self-end ${commentLen >= 1000 ? 'text-rose-700' : 'text-muted'}`}
+          aria-live="polite"
+        >
+          {commentLen} of 1000 characters
+        </span>
       </label>
       <label className="text-xs text-muted flex gap-2 items-start">
         <input type="checkbox" required name="consent" className="mt-0.5" />

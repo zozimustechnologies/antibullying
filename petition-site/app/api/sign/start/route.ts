@@ -42,7 +42,7 @@ export async function POST(req: Request) {
   const ageNum = Number(body.age);
   const guardianConsent = isTrue(body.guardianConsent);
   const consent = isTrue(body.consent);
-  const comment = body.comment ? str(body.comment, 1, 400) ?? null : null;
+  const comment = body.comment ? str(body.comment, 1, 1000) ?? null : null;
 
   if (!name) return bad('Name is required.');
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return bad('A valid email is required.');
