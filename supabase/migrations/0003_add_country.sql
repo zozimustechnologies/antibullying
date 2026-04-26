@@ -23,6 +23,8 @@ create or replace view public.public_comments as
     and char_length(trim(comment)) > 0
   order by created_at desc;
 
+drop function if exists public.get_public_comments(int);
+
 create or replace function public.get_public_comments(limit_count int default 50)
 returns table (first_name text, city text, state text, country text, comment text, created_at timestamptz)
 language sql
