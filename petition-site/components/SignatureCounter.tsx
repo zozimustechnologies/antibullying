@@ -12,7 +12,7 @@ export function SignatureCounter() {
       (typeof process !== 'undefined' && process.env.NEXT_PUBLIC_SIGN_ENDPOINT) || '';
     const url = base ? `${base}/count` : '/api/count';
     const fetchCount = () =>
-      fetch(url, { cache: 'no-store' })
+      fetch(`${url}?_t=${Date.now()}`, { cache: 'no-store' })
         .then((r) => (r.ok ? r.json() : Promise.reject()))
         .then((d) => {
           setCount(d.count ?? 0);
@@ -27,7 +27,14 @@ export function SignatureCounter() {
       if (document.visibilityState === 'visible') fetchCount();
     };
     // Re-fetch immediately when a signature is added on the same page.
-    const onSigned = () => fetchCount();
+    // Use the fresh count from the sign response if available.
+    const onSigned = (e: Event) => {
+      const detail = (e as CustomEvent).detail;
+      if (detail?.count != null) {
+        setCount(detail.count);
+      }
+      fetchCount();
+    };
     document.addEventListener('visibilitychange', onVisible);
     window.addEventListener('signature-added', onSigned);
     return () => {

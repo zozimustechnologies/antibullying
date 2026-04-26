@@ -155,8 +155,8 @@ export function SignForm() {
         return;
       }
       if (json.count != null) setSignedCount(json.count);
-      // Notify any SignatureCounter on the same page to refresh immediately.
-      window.dispatchEvent(new CustomEvent('signature-added'));
+      // Notify any SignatureCounter on the same page with the fresh count.
+      window.dispatchEvent(new CustomEvent('signature-added', { detail: { count: json.count } }));
       setStage(json.alreadySigned ? 'already' : 'done');
     } catch {
       setBusy(false);
