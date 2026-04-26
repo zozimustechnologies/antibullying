@@ -10,6 +10,8 @@ const SIGN_URL = ENDPOINT_BASE || '/api/sign';
 const TURNSTILE_SITE_KEY =
   (typeof process !== 'undefined' && process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY) || '';
 
+const COUNT_URL = ENDPOINT_BASE ? `${ENDPOINT_BASE}/count` : '/api/count';
+
 declare global {
   interface Window {
     turnstile?: {
@@ -28,6 +30,7 @@ export function SignForm() {
   const [error, setError] = useState<string | null>(null);
   const [commentLen, setCommentLen] = useState(0);
   const [turnstileToken, setTurnstileToken] = useState<string>('');
+  const [signedCount, setSignedCount] = useState<number | null>(null);
   const formStartedAt = useRef<number>(Date.now());
   const turnstileRef = useRef<HTMLDivElement | null>(null);
   const widgetId = useRef<string | null>(null);
@@ -98,6 +101,7 @@ export function SignForm() {
         }
         return;
       }
+      if (json.count != null) setSignedCount(json.count);
       setStage('done');
     } catch {
       setBusy(false);
@@ -115,6 +119,11 @@ export function SignForm() {
     return (
       <div className="flex flex-col gap-4">
         <h2 className="font-serif text-2xl">Signed. Thank you.</h2>
+        {signedCount != null && (
+          <p className="text-lg font-medium text-accent">
+            You are signature #{signedCount.toLocaleString('en-IN')}.
+          </p>
+        )}
         <p className="text-sm text-ink/80">
           Your signature is counted. We'll email you when this petition reaches the next milestone, gets a response from an MP, or is formally submitted to Parliament. No more than once a month — and you can unsubscribe any time.
         </p>

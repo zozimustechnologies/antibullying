@@ -11,13 +11,21 @@ export function SignatureCounter() {
     const base =
       (typeof process !== 'undefined' && process.env.NEXT_PUBLIC_SIGN_ENDPOINT) || '';
     const url = base ? `${base}/count` : '/api/count';
-    fetch(url)
-      .then((r) => (r.ok ? r.json() : Promise.reject()))
-      .then((d) => {
-        setCount(d.count ?? 0);
-        if (d.target) setTarget(d.target);
-      })
-      .catch(() => setCount(0));
+    const fetchCount = () =>
+      fetch(url)
+        .then((r) => (r.ok ? r.json() : Promise.reject()))
+        .then((d) => {
+          setCount(d.count ?? 0);
+          if (d.target) setTarget(d.target);
+        })
+        .catch(() => {});
+    fetchCount();
+    // Re-fetch when user returns to the tab (e.g. after signing on /sign).
+    const onVisible = () => {
+      if (document.visibilityState === 'visible') fetchCount();
+    };
+    document.addEventListener('visibilitychange', onVisible);
+    return () => document.removeEventListener('visibilitychange', onVisible);
   }, []);
 
   const pct = count != null ? Math.min(100, (count / target) * 100) : 0;

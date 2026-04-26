@@ -143,7 +143,13 @@ export async function POST(req: Request) {
     }
   }
 
-  return NextResponse.json({ ok: true });
+  // Fetch updated count so the client can show it immediately.
+  const { count: newCount } = await sb
+    .from('signatures')
+    .select('id', { count: 'exact', head: true })
+    .eq('verified', true);
+
+  return NextResponse.json({ ok: true, count: newCount ?? 0 });
 }
 
 function str(v: unknown, min: number, max: number): string | null {
