@@ -17,5 +17,11 @@ export async function GET(req: Request) {
     console.error('comments rpc failed', error);
     return NextResponse.json({ items: [], error: 'rpc' });
   }
-  return NextResponse.json({ items: data ?? [] });
+  // Strip location fields — only first name + comment + timestamp are public.
+  const items = (data ?? []).map((r: { first_name: string; comment: string; created_at: string }) => ({
+    first_name: r.first_name,
+    comment: r.comment,
+    created_at: r.created_at,
+  }));
+  return NextResponse.json({ items });
 }

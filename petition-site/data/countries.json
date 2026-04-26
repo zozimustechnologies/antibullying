@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "countries": [
+    {
+      "code": "NO",
+      "name": "Norway",
+      "flag": "🇳🇴",
+      "law": "Education Act §9A",
+      "since": "2003 (revised 2017)",
+      "mechanism": "Every child has a legal right to a safe school environment. Schools must act on any signal of bullying. The state can fine schools that fail.",
+      "punchline": "A right, not a request."
+    },
+    {
+      "code": "SE",
+      "name": "Sweden",
+      "flag": "🇸🇪",
+      "law": "Discrimination Act + Education Act, Ch. 6",
+      "since": "2006",
+      "mechanism": "Every school must publish an annual anti-bullying plan. The Schools Inspectorate audits compliance.",
+      "punchline": "Bullying prevention is a published plan, not a posters-on-a-wall promise."
+    },
+    {
+      "code": "JP",
+      "name": "Japan",
+      "flag": "🇯🇵",
+      "law": "Act for the Promotion of Measures to Prevent Bullying",
+      "since": "2013",
+      "mechanism": "Passed after a student's suicide. Mandates national policy + school-level prevention committees + investigation duty.",
+      "punchline": "It took a tragedy. India should not wait for one."
+    },
+    {
+      "code": "KR",
+      "name": "South Korea",
+      "flag": "🇰🇷",
+      "law": "School Violence Prevention and Countermeasures Act",
+      "since": "2004 (strengthened 2012, 2023)",
+      "mechanism": "School Violence Committees in every school. Findings can go on a bully's permanent school record — affecting university admissions.",
+      "punchline": "Consequences with teeth."
+    },
+    {
+      "code": "GB",
+      "name": "United Kingdom",
+      "flag": "🇬🇧",
+      "law": "Education and Inspections Act 2006",
+      "since": "2006",
+      "mechanism": "Head teachers have a statutory duty to prevent bullying — including bullying that happens off-premises and online.",
+      "punchline": "Cyber is in scope. In India, it largely isn't."
+    },
+    {
+      "code": "US",
+      "name": "United States",
+      "flag": "🇺🇸",
+      "law": "All 50 states have anti-bullying statutes; federal civil-rights law overlays.",
+      "since": "1999–2015",
+      "mechanism": "State-level reporting, investigation, and discipline requirements. Federal action where bullying maps to protected-class harassment.",
+      "punchline": "Fifty laws. We have none."
+    },
+    {
+      "code": "AU",
+      "name": "Australia",
+      "flag": "🇦🇺",
+      "law": "National Safe Schools Framework + state-level laws",
+      "since": "2011",
+      "mechanism": "Mandatory frameworks every school must adopt. Some states criminalise serious cyberbullying.",
+      "punchline": "A floor, not a suggestion."
+    },
+    {
+      "code": "IN",
+      "name": "India",
+      "flag": "🇮🇳",
+      "law": "CBSE circulars + UGC Anti-Ragging Regulations (colleges only) + NCPCR guidelines",
+      "since": "Various",
+      "mechanism": "Advisory. Not binding on schools generally. Action depends on each school's willingness.",
+      "punchline": "A guideline. A school can follow it. Or not. Most don't.",
+      "isHome": true
+    }
+  ]
+}

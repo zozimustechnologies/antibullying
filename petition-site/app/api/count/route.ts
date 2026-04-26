@@ -14,16 +14,20 @@ export async function GET() {
     );
   }
   const sb = supabaseAdmin();
-  const { data, error } = await sb.rpc('get_signature_count');
+  // Direct count is more reliable than scalar RPC across Supabase JS versions.
+  const { count, error } = await sb
+    .from('signatures')
+    .select('id', { count: 'exact', head: true })
+    .eq('verified', true);
   if (error) {
-    console.error('count rpc failed', error);
+    console.error('count query failed', error);
     return NextResponse.json(
-      { count: 0, target: TARGET, configured: true, error: 'rpc' },
+      { count: 0, target: TARGET, configured: true, error: 'query' },
       { headers: { 'Cache-Control': 'no-store' } },
     );
   }
   return NextResponse.json(
-    { count: Number(data) || 0, target: TARGET, configured: true },
+    { count: count ?? 0, target: TARGET, configured: true },
     { headers: { 'Cache-Control': 'no-store' } },
   );
 }

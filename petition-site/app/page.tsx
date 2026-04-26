@@ -10,6 +10,7 @@ export default function HomePage() {
         <nav className="flex gap-4 text-sm text-muted">
           <Link href="/about">Why a law</Link>
           <Link href="/world">Around the world</Link>
+          <Link href="/voices">Voices</Link>
           <Link href="/founder">His story</Link>
         </nav>
       </header>
