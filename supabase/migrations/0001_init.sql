@@ -33,22 +33,6 @@ create index if not exists signatures_verified_idx on public.signatures (verifie
 create index if not exists signatures_created_idx  on public.signatures (created_at desc);
 
 -- ---------------------------------------------------------------------------
--- otp_codes
--- Short-lived 6-digit codes for verifying email ownership.
--- ---------------------------------------------------------------------------
-create table if not exists public.otp_codes (
-  id              uuid          primary key default gen_random_uuid(),
-  signature_id    uuid          not null references public.signatures(id) on delete cascade,
-  code_hash       text          not null,        -- sha256 of the 6-digit code
-  expires_at      timestamptz   not null,
-  attempts        smallint      not null default 0,
-  consumed_at     timestamptz,
-  created_at      timestamptz   not null default now()
-);
-
-create index if not exists otp_codes_sig_idx on public.otp_codes (signature_id, expires_at desc);
-
--- ---------------------------------------------------------------------------
 -- public_count: a safe view exposing only what the front-end needs.
 -- ---------------------------------------------------------------------------
 create or replace view public.signature_count as
@@ -80,7 +64,6 @@ create or replace view public.public_comments as
 -- and comment feed.
 -- ---------------------------------------------------------------------------
 alter table public.signatures enable row level security;
-alter table public.otp_codes  enable row level security;
 
 -- No policies = no anon access to the base tables. Service role bypasses RLS.
 

@@ -382,9 +382,9 @@ Keep `host_permissions` empty in v1 to ease review. Add domain-scoped scripts in
 
 ## 8. Petition Site (Separate)
 
-- **Stack:** Next.js + Postgres (Supabase) + reCAPTCHA + email OTP verification.
+- **Stack:** Next.js + Postgres (Supabase) + Cloudflare Turnstile.
 - **Fields:** name, city, state, age-bracket, email (verified), optional comment.
-- **Anti-fraud:** OTP, rate limit per IP, dedupe by email + phone.
+- **Anti-fraud:** Turnstile, rate limit per IP, dedupe by email.
 - **Live counter** towards 100,000.
 - **Transparency page:** export of aggregated stats; raw data never published.
 - **Compliance:** India DPDP Act 2023 — explicit consent, purpose limitation, easy withdrawal.
@@ -463,7 +463,7 @@ antibullying/                         # github.com/zozimustechnologies/antibully
 - **No PII in commits.** Pre-commit hook scans for the founder's full name, school name, and city. Add a `.gitleaks.toml` with custom rules.
 - **Issue templates** — separate templates for: content suggestions, country-law corrections, interview submissions, accessibility issues. *No* public bug-report channel that could surface the child's identity.
 - **Discussions disabled** until a moderation policy is in place; harassment toward the founder is a foreseeable risk.
-- **Secrets** (Supabase, reCAPTCHA, email-OTP, analytics) live only in GitHub Actions secrets; never in the repo.
+- **Secrets** (Supabase, Turnstile, analytics) live only in GitHub Actions secrets; never in the repo.
 - **Takedown drill** — documented in `docs/safeguards/minor-founder-protocol.md`: how to flip `published: false`, ship a release, and pull the petition-site page within 1 hour of a guardian request.
 - **License** — code under MIT; written content (story, interviews, country cards) under **CC BY-NC 4.0** so it cannot be repurposed commercially without permission.
 
@@ -496,7 +496,7 @@ antibullying/                         # github.com/zozimustechnologies/antibully
 - Submit to Edge Add-ons + Chrome Web Store.
 
 ### Phase 2 — Petition Site (Weeks 4–7, parallel)
-- Next.js site, OTP, counter, share tools.
+- Next.js site, counter, share tools.
 - Legal/privacy review.
 - Soft launch with first 10 interviews.
 
@@ -519,7 +519,7 @@ antibullying/                         # github.com/zozimustechnologies/antibully
 | Risk | Mitigation |
 |---|---|
 | Edge/Chrome rejects as "redirect-only" | Robust standalone quiz + learn + helplines; petition is secondary CTA. |
-| Petition fraud inflates numbers | OTP + reCAPTCHA + dedupe; publish methodology. |
+| Petition fraud inflates numbers | Turnstile + honeypot + dedupe; publish methodology. |
 | Sensitive content triggers users | Trauma-informed copy reviewed by clinician; helplines on every page. |
 | Minors' data on petition site | Disallow under-18 sign-ups; or require guardian consent flow. |
 | Political neutrality | Frame as child-safety, not partisan; brief MPs across parties. |

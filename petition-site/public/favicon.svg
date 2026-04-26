@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Shield body -->
+  <path d="M16 1 L3 6 L3 15 C3 23 9 29 16 31 C23 29 29 23 29 15 L29 6 Z" fill="#1e293b" stroke="#0f172a" stroke-width="0.5"/>
+  <!-- Raised hand (stop gesture) -->
+  <g fill="#fbbf24">
+    <!-- Palm -->
+    <rect x="12.5" y="13" width="7" height="9" rx="2"/>
+    <!-- Fingers -->
+    <rect x="12.5" y="8" width="1.8" height="7" rx="0.9"/>
+    <rect x="15.1" y="7" width="1.8" height="8" rx="0.9"/>
+    <rect x="17.7" y="8" width="1.8" height="7" rx="0.9"/>
+    <rect x="20.3" y="10" width="1.8" height="5" rx="0.9"/>
+    <!-- Thumb -->
+    <rect x="10" y="14" width="4" height="1.8" rx="0.9"/>
+  </g>
+</svg>

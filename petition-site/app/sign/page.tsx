@@ -11,7 +11,7 @@ export default function SignPage() {
           One signature is one parliamentarian harder to ignore.
         </h1>
         <p className="text-sm text-muted">
-          We verify every signature with an email OTP. Your details are never shared.
+          Your details are never shared.
         </p>
       </header>
       <SignForm />

@@ -26,7 +26,7 @@ http://localhost:3000
 
 ## Backend (Supabase)
 
-`/api/sign`, `/api/count`, and `/api/comments` are wired to Supabase Postgres. Signatures are recorded immediately on submit — no OTP step. Bot abuse is blocked by a layered defense:
+`/api/sign`, `/api/count`, and `/api/comments` are wired to Supabase Postgres. Signatures are recorded immediately on submit. Bot abuse is blocked by a layered defense:
 
 1. **Cloudflare Turnstile** — invisible challenge, free, unlimited.
 2. **Honeypot field** — hidden `website` input bots fill, humans don't.
@@ -37,7 +37,7 @@ http://localhost:3000
 
 ### One-time setup
 
-1. Create a Supabase project, run [`../supabase/migrations/0001_init.sql`](../supabase/migrations/0001_init.sql) (and `0002_drop_otp.sql` if upgrading) in the SQL editor. See [`../supabase/README.md`](../supabase/README.md).
+1. Create a Supabase project, run [`../supabase/migrations/0001_init.sql`](../supabase/migrations/0001_init.sql) in the SQL editor. See [`../supabase/README.md`](../supabase/README.md).
 2. Get a Cloudflare Turnstile site/secret key (free) at https://dash.cloudflare.com/?to=/:account/turnstile.
 3. Copy `.env.example` → `.env.local` and fill in:
 
@@ -46,7 +46,7 @@ http://localhost:3000
    | `SUPABASE_URL` / `SUPABASE_SERVICE_ROLE_KEY` | Server-side only — bypasses RLS. |
    | `NEXT_PUBLIC_SUPABASE_URL` / `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Public, reads via SECURITY DEFINER RPCs only. |
    | `NEXT_PUBLIC_TURNSTILE_SITE_KEY` / `TURNSTILE_SECRET_KEY` | Cloudflare Turnstile keys. |
-   | `OTP_PEPPER` | 32+ random chars. Used for daily-rotating IP hashes. |
+   | `IP_HASH_PEPPER` | 32+ random chars. Used for daily-rotating IP hashes. |
 
 ### Dev fallback
 

@@ -23,8 +23,8 @@ Full comparative research: [`docs/`](docs/) and the extension's `/world` page.
 | Folder | What it is |
 |---|---|
 | [`extension/`](extension/) | Edge/Chrome MV3 extension. 7-question self-quiz → motivational close → petition link. Side panel with country comparison + helplines + founder's story. |
-| [`petition-site/`](petition-site/) | Next.js 14 App Router petition site. OTP-verified signing, live counter, public comments, 7 asks. |
-| [`supabase/`](supabase/) | Postgres schema (`signatures`, `otp_codes`) + RLS + SECURITY DEFINER RPCs. |
+| [`petition-site/`](petition-site/) | Next.js 14 App Router petition site. Live counter, public comments, 7 asks. |
+| [`supabase/`](supabase/) | Postgres schema (`signatures`) + RLS + SECURITY DEFINER RPCs. |
 | [`docs/`](docs/) | Country-law research, interview transcripts, **safeguards for the minor founder**. |
 | [`.github/workflows/`](.github/workflows/) | GitHub Pages deploy + gitleaks PII scan. |
 | [`PLAN.md`](PLAN.md) | Full project plan — read this first. |
@@ -37,7 +37,7 @@ Full comparative research: [`docs/`](docs/) and the extension's `/world` page.
 
 **Petition site** — Next.js 14 (App Router) + Tailwind + TypeScript. Dual-mode build: dynamic on Vercel/Node, static export on GitHub Pages (`GITHUB_PAGES=true`).
 
-**Backend** — Supabase Postgres with row-level security. Email OTP via Resend (SHA-256 hashed + 32-char pepper, 15-min TTL, 5-attempt cap, constant-time compare). In-memory rate limiter (Upstash-ready).
+**Backend** — Supabase Postgres with row-level security. Cloudflare Turnstile + honeypot + disposable-email blocklist for anti-fraud. In-memory rate limiter (Upstash-ready).
 
 ---
 
@@ -60,11 +60,11 @@ npm run dev                  # http://localhost:3000
 
 1. Create a Supabase project, run [`supabase/migrations/0001_init.sql`](supabase/migrations/0001_init.sql) in the SQL editor.
 2. Create a Resend account, verify a sending domain, generate an API key.
-3. Fill in `petition-site/.env.local` with `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `RESEND_API_KEY`, `RESEND_FROM`, `OTP_PEPPER`.
+3. Fill in `petition-site/.env.local` with `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `IP_HASH_PEPPER`.
 
 Full walkthrough: [`supabase/README.md`](supabase/README.md) and [`petition-site/README.md`](petition-site/README.md).
 
-> **Dev fallback:** without `RESEND_API_KEY` set, OTPs print to the server console instead of emailing — handy for local testing.
+> **Dev fallback:** if `TURNSTILE_SECRET_KEY` is unset, the Turnstile check is skipped — handy for local testing.
 
 ---
 

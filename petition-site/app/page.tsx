@@ -40,7 +40,7 @@ export default function HomePage() {
             Sign the petition →
           </Link>
           <p className="text-xs text-muted">
-            We verify every signature with an OTP. We will not share your details.
+            We will not share your details.
             Read the <Link className="underline" href="/privacy">privacy policy</Link>.
           </p>
         </div>

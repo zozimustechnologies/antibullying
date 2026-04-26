@@ -125,7 +125,7 @@ export function SignForm() {
           className="bg-ink text-paper rounded-full py-2.5 text-sm text-center"
           href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
             'I just signed the petition to make anti-bullying a law in India. 100,000 signatures go to Parliament. Add yours: ',
-          )}https://zozimustechnologies.github.io/antibullying/sign/`}
+          )}https://standup-petition.vercel.app/sign/`}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -208,7 +208,7 @@ export function SignForm() {
         Untick to keep it private — Parliament will still see it when we hand the petition over.
       </label>
       <label className="text-xs text-muted flex gap-2 items-start">
-        <input type="checkbox" required name="consent" className="mt-0.5" />
+        <input type="checkbox" required name="consent" defaultChecked className="mt-0.5" />
         I consent to my name and city being counted on this petition and submitted to the Indian Parliament, and to receiving occasional email updates about its progress. (DPDP Act 2023)
       </label>
 

@@ -16,17 +16,16 @@ This folder holds the database schema for the petition backend.
    SUPABASE_SERVICE_ROLE_KEY=...
    NEXT_PUBLIC_SUPABASE_URL=...           # same as SUPABASE_URL
    NEXT_PUBLIC_SUPABASE_ANON_KEY=...
-   RESEND_API_KEY=...                     # for OTP emails
+   RESEND_API_KEY=...                     # for notification emails
    RESEND_FROM=StandUp <noreply@your-domain>
-   OTP_PEPPER=long-random-string          # min 32 chars
+   IP_HASH_PEPPER=long-random-string       # min 32 chars
    ```
 
 ## Schema at a glance
 
 | Table | Purpose |
 |---|---|
-| `signatures` | One row per signatory. `verified=false` until OTP is confirmed. Email is `citext` (case-insensitive unique). |
-| `otp_codes` | Short-lived hashed 6-digit codes; expire in 15 minutes; max 5 attempts. |
+| `signatures` | One row per signatory. Email is `citext` (case-insensitive unique). |
 
 | View / RPC | Purpose |
 |---|---|

@@ -34,6 +34,6 @@ export function clientIp(req: Request): string {
 // without storing real addresses.
 export function hashIp(ip: string): string {
   const day = new Date().toISOString().slice(0, 10);
-  const pepper = process.env.OTP_PEPPER || 'dev-pepper-please-change';
+  const pepper = process.env.IP_HASH_PEPPER || 'dev-pepper-please-change';
   return createHash('sha256').update(`${ip}:${day}:${pepper}`).digest('hex');
 }
